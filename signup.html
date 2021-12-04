@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Document</title>
+
+    <script type="text/javascript">
+        function validate() {
+            var regName = /^[A-Za-z]+$/;
+            var numbers = /^[-+]?[0-9]+$/;
+            var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            var alphanumeric = /^[0-9a-zA-Z]+$/;
+            var decimal = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
+            var fname = document.getElementById("fname");
+            var lname = document.getElementById("lname");
+            var password = document.getElementById("password");
+            var email = document.getElementById("email");
+            var reenterpassword = document.getElementById("conform-password");
+            var license = document.getElementById("license");
+            <!--first name validation-->
+            if (fname.value == "") {
+                alert("first name is required");
+                return false;
+            } else if (!(fname.value.match(regName))) {
+                alert("first name is not a valid , please enter letters only");
+                return false;
+            } else if (fname.value.length < 3) {
+                alert("first name is not a valid , please enter more than 3 letters");
+                return false;
+            }
+            <!--last name validation-->
+            else if (lname.value == "") {
+                alert("last name is required");
+                return false;
+            } else if (!(lname.value.match(regName))) {
+                alert("last name is not a valid , please enter letters only");
+                return false;
+            } else if (lname.value.length < 3) {
+                alert("last name is not a valid , please enter more than 3 letters");
+                return false;
+            }
+            <!-- email  validation-->
+            else if (email.value == "") {
+                alert("email is required");
+                return false;
+            } else if (!(email.value.match(mailformat))) {
+                alert("email is not valid");
+                return false;
+            }
+            <!-- password validation -->
+            else if (password.value == "") {
+                alert("password is required");
+                return false;
+            } else if (password.value.length < 6) {
+                alert("password must be at least 6 characters ");
+                return false;
+            } else if (!password.value.match(decimal)) {
+                alert("password must contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character. ");
+                return false;
+            } else if (password.value != reenterpassword.value) {
+                alert("enter password is not match");
+                return false;
+            } else {
+                return true;
+            }
+        }
+    </script>
+    <style type="text/css">
+        body {
+            align-items: center;
+            background: ;
+            width: 100%;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            height: 99vh;
+        }
+        
+        .content {
+            width: 1200px;
+            height: auto;
+            margin: auto;
+            color: black;
+            position: relative;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        
+        .content .par {
+            font-size: 20px;
+            padding-top: 20px;
+            padding-left: 20px;
+            padding-bottom: 25px;
+            letter-spacing: 1.2px;
+            line-height: 30px;
+        }
+        
+        .content h1 {
+            font-size: 40px;
+            padding-right: 20px;
+            margin-top: 8%;
+            letter-spacing: 2px;
+        }
+        
+        #form {
+            background: linear-gradient(to top, rgba(24, 24, 24, 0.8)50%, rgba(26, 25, 25, 0.8)50%);
+            position: absolute;
+            border-radius: 20px;
+            box-sizing: border-box;
+            height: 550px;
+            padding: 20px;
+            width: 320px;
+            top: -20px;
+            left: 870px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: aliceblue;
+            padding-bottom: 20px;
+        }
+        
+        input {
+            width: 240px;
+            background: transparent;
+            border-bottom: 1px solid rgb(210, 210, 252);
+            border-top: none;
+            border-right: none;
+            border-left: none;
+            color: azure;
+            font-size: 15px;
+            letter-spacing: 1px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        
+        input:focus {
+            outline: none;
+        }
+        
+        #submit {
+            background-color: #08d;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            border-radius: 10px;
+            border: 0;
+            box-sizing: border-box;
+            color: #eee;
+            font-size: 18px;
+            height: 50px;
+            margin-top: 38px;
+            text-align: center;
+            width: 100%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="logo">
+            <img src="https://nestaway-assets.nestaway.com/refonte/precompiled-assets/src/assets/images/common/nestawayLogo-eb150adf041954443b4ff9fcb97dad98.svg">
+        </div>
+        <h1>EXCELLENT SPACE FOR <br><span>YOUR NEXT HOME</span></h1>
+        <P class="par">
+            Everything You Need. All Right Here.<br>
+
+        </P>
+        <img src="https://nestaway-assets.nestaway.com/refonte/precompiled-assets/src/assets/images/home/marketImg4-1106b42cf8d068c060d9402e1a29d745.png">
+
+        <form onsubmit="return validate()" method="get" action="home.html" id="form">
+            <h1>signup</h1>
+
+            <label> first name:</label>
+            <input type="text" name="last name" id="fname" placeholder="first name"><br><br>
+            <label> last name:</label>
+            <input type="text" name="lastname" id="lname" placeholder="last name"><br><br>
+            <label> email:</label>
+            <input type="email" name="email" id="email" placeholder="email"><br><br>
+            <label> password:</label>
+            <input type="password" name="password" id="password" placeholder="password"><br><br>
+            <label> conform-password:</label>
+            <input type="password" name="password" id="conform-password" placeholder="password"><br><br>
+
+            <input type="checkbox" name="license" id="license" placeholder="license">
+            <label>agree to the terms and conditions </label><br>
+
+            <button onclick="validate()" type="submit" id="submit">submit</button>
+
+        </form>
+
+    </div>
+
+
+</body>
+
+</html>
